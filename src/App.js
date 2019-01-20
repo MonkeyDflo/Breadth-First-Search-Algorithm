@@ -124,6 +124,7 @@ class App extends Component {
           </div>
           <form id="calcul" onSubmit={this.handleSubmit}>
             <h2>Find a path</h2>
+            <p>(HP means Hyper Space)</p>
             <label>
               Send Empire Plan :
               <input id='name' name='name' type="file" value={name} onChange={this.handleChange} />

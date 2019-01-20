@@ -16,7 +16,7 @@ function Traject(){
 
 /**
  * Determine if the attribut Fuel is empty and refuel and add one 
- * to the current day 
+ * to the current day. 
  */
 Traject.prototype.FuelEmpty = function(){
     if(this.fuel == 0){
@@ -58,12 +58,12 @@ Traject.prototype.FromPlanetToTraject = function(Planete, day, db){
         var name1 = tab_pla[i];  
         var name2 = tab_pla[i+1];
 
-        id_1 = Where_in_ORIGIN(db, name1);
-        id_2 = Where_in_DESTINATION(db, name2);
+        id_1 = WhereinORIGIN(db, name1);
+        id_2 = WhereinDESTINATION(db, name2);
 
-        if( match_index(id_1, id_2) !== -1 ){
+        if( matchIndex(id_1, id_2) !== -1 ){
            
-            right_idx = match_index(id_1, id_2);
+            right_idx = matchIndex(id_1, id_2);
             
             value_travel_time = parseInt(db[right_idx].TRAVEL_TIME);
 
@@ -87,10 +87,10 @@ Traject.prototype.FromPlanetToTraject = function(Planete, day, db){
             right_idx = -1;
         }
         else{
-            id_1 = Where_in_DESTINATION(db, name1);
-            id_2 = Where_in_ORIGIN(db, name2);
-            if( match_index(id_1, id_2) !== -1 ){
-                right_idx = match_index(id_1, id_2);
+            id_1 = WhereinDESTINATION(db, name1);
+            id_2 = WhereinORIGIN(db, name2);
+            if( matchIndex(id_1, id_2) !== -1 ){
+                right_idx = matchIndex(id_1, id_2);
                 value_travel_time = parseInt(db[right_idx].TRAVEL_TIME) ;
                 for(var j = 0 ; j<= value_travel_time; j++){
                     if(j==0){

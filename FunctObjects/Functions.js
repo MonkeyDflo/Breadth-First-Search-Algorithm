@@ -3,7 +3,7 @@
 /**
  * Find indexes where planet_name has been found in row ORIGIN
  */
-function Where_in_ORIGIN(db, planet_name){
+function WhereinORIGIN(db, planet_name){
     var where_ORIGIN = [];
     var compteur = 0; 
 
@@ -18,7 +18,7 @@ function Where_in_ORIGIN(db, planet_name){
 /**
  * Find indexes where planet_name has been found in row DESTINATION
  */
-function Where_in_DESTINATION(db, planet_name){
+function WhereinDESTINATION(db, planet_name){
     var where_DESTINATION = [];
     var compteur = 0; 
 
@@ -34,7 +34,7 @@ function Where_in_DESTINATION(db, planet_name){
 /**
  * Find indexes where element has been found in the table db
  */
-function Where_in_table(db, element){
+function WhereinTable(db, element){
     var where_element = [];
     var compteur = 0;
 
@@ -71,7 +71,7 @@ function isInTable(table, name){
 /**
  * Look for same number in two different table
  */
-function match_index(table1, table2){
+function matchIndex(table1, table2){
     var right_indx = -1; 
     if(( table1.length !== 0) && (table2.length !== 0) ){
 

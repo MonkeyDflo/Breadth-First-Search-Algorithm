@@ -28,14 +28,14 @@ Graph.prototype.addPlanet = function(p){
 }
 
 /** Return the array table_planet */
-Graph.prototype.getTable_Planets = function(){
+Graph.prototype.getTablePlanets = function(){
     return this.table_planets;
 }
 
 /** Return a boolean depends on if the given name correspond to a Planet name
  * is the array table_planets
   */
-Graph.prototype.isInTable_Planets = function(name){
+Graph.prototype.isInTablePlanets = function(name){
     var index=-1; 
 
     for(var i = 0; i<this.table_planets.length; i++){
@@ -56,7 +56,7 @@ Graph.prototype.isInTable_Planets = function(name){
 /** Return index of a given name founded in table_planet.
  * Other it returns -1.
  */
-Graph.prototype.Where_InTable_Planets = function(name){
+Graph.prototype.WhereInTablePlanets = function(name){
     var index=-1; 
 
     for(var i = 0; i<this.table_planets.length; i++){

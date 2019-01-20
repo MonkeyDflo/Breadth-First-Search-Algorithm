@@ -86,7 +86,7 @@ db.all(sql, [], (err, rows) => {
                     // Create a new object planet with the name of curent row founded in ORIGIN
                     var p = new Planet(rows[i].ORIGIN);
                     // if it is not table_planet of the object Graph universe
-                    if(  !universe.isInTable_Planets(p.getName()) ){ 
+                    if(  !universe.isInTablePlanets(p.getName()) ){ 
                     //on regarde dans la bd où on le retrouve 
                         for(var j =0; j<rows.length; j++){
                             if( (p.getName() == rows[j].ORIGIN) && (!p.isInConnection(rows[j].DESTINATION)) ){
@@ -109,7 +109,7 @@ db.all(sql, [], (err, rows) => {
                     }
                     //Exactly the same but we are looking for new planet name in the DESTINATION row
                     var p2 = new Planet(rows[i].DESTINATION);
-                    if(  !universe.isInTable_Planets(p2.getName()) ){ 
+                    if(  !universe.isInTablePlanets(p2.getName()) ){ 
                         //Fill connections tab  
                         for(var j =0; j<rows.length; j++){
                             if( (p2.getName() == rows[j].ORIGIN) && (!p2.isInConnection(rows[j].DESTINATION)) ){
@@ -140,12 +140,12 @@ db.all(sql, [], (err, rows) => {
                 */
 
             //set beginning attribut of the universe object
-            var index_departure = universe.Where_InTable_Planets(millenium.departure);
+            var index_departure = universe.WhereInTablePlanets(millenium.departure);
             var p3 = universe.table_planets[index_departure];
             universe.setBeginning(p3); 
 
             //set end attribut of the universe object
-            var index_arrival = universe.Where_InTable_Planets(millenium.arrival);
+            var index_arrival = universe.WhereInTablePlanets(millenium.arrival);
             var p4 = universe.table_planets[index_arrival];
             universe.setEnd(p4); 
             
@@ -169,7 +169,7 @@ db.all(sql, [], (err, rows) => {
                 var current = queue.shift();
                 var nb_parents =  current.nbParent(current,empire.countdown);
                 //Use the number of previous planets visited to calculate fuel used and the current day
-                millenium_falcon.Calcul_Fuel_Day(current, nb_parents, rows);
+                millenium_falcon.CalculFuelDay(current, nb_parents, rows);
 
                 if ( (current.getName() == end) 
                 && (millenium_falcon.current_day <= empire.countdown)
@@ -191,7 +191,7 @@ db.all(sql, [], (err, rows) => {
                 for (var i =0; i<connection.length; i++){
                     /*we looking for in table_planet a planet which has the same name
                     to set its connections */
-                    var idx = universe.Where_InTable_Planets(connection[i].getName());
+                    var idx = universe.WhereInTablePlanets(connection[i].getName());
                     connection[i].connection = universe.table_planets[idx].connection;
                     //////// NEIGHBOR PLANET /////////
                     //Go to the next possible planet indicate by connection[i]
@@ -229,7 +229,7 @@ db.all(sql, [], (err, rows) => {
                     {   /**Once we have looked all its connections,
                         * we check it and we send it to the table_planets
                         */ 
-                        var idx = universe.Where_InTable_Planets(current.getName());
+                        var idx = universe.WhereInTablePlanets(current.getName());
                         current.Checked();
                         universe.table_planets[idx]=Object.assign(universe.table_planets[idx],current);
                     }
