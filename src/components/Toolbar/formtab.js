@@ -1,18 +1,6 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from 'react';
+import './Toolbar.css';
 
-import Toolbar from './components/Toolbar/Toolbar';
-
-import Algorithm from './components/Algorithm'
-import FunctObjects from './components/FunctObjects'
-import About from './components/About'
-import Project from './components/Project'
 
 
 const styles = theme => ({
@@ -108,43 +96,23 @@ class App extends Component {
     )
   }
 
-  render() {
+  
+const formTab = props => (
     const { name, result } = this.state
-    return (
-      
-      <div>
-        
-        
-          <div>
-            <Toolbar />
-          </div>
-          <main style={{marginTop:'60px'}}>
-          <div>
-          <Project />
-          </div>
-          <form id="calcul" onSubmit={this.handleSubmit}>
-            <h2>Find a path</h2>
-            <label>
-              Send Empire Plan :
-              <input id='name' name='name' type="file" value={name} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        
+    <form onSubmit={this.handleSubmit}>
+                <label>
+                Send Empire Plan :
+                <input id='name' name='name' type="file" value={name} onChange={this.handleChange} />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
+         
         <div>
           {
             result.map(item => this.displayArray(item))
           }
         </div>
-        <Algorithm />
-        <FunctObjects />
-        <About />
-        </main>
-      </div>
-      
-    );
-  }
-}
+    
+);
 
-export default  withStyles(styles)(App);
-
+export default formTab;
