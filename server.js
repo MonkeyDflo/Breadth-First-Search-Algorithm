@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({extended:true}));
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
 const vm = require('vm');
-vm.runInThisContext(fs.readFileSync(__dirname + "/components/Planet.js"));
-vm.runInThisContext(fs.readFileSync(__dirname + "/components/Graph.js"));
-vm.runInThisContext(fs.readFileSync(__dirname + "/components/Ship.js"));
-vm.runInThisContext(fs.readFileSync(__dirname + "/components/Functions.js"));
-vm.runInThisContext(fs.readFileSync(__dirname + "/components/Traject.js"));
+vm.runInThisContext(fs.readFileSync(__dirname + "/FunctObjects/Planet.js"));
+vm.runInThisContext(fs.readFileSync(__dirname + "/FunctObjects/Graph.js"));
+vm.runInThisContext(fs.readFileSync(__dirname + "/FunctObjects/Ship.js"));
+vm.runInThisContext(fs.readFileSync(__dirname + "/FunctObjects/Functions.js"));
+vm.runInThisContext(fs.readFileSync(__dirname + "/FunctObjects/Traject.js"));
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
