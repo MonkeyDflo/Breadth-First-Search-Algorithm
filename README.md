@@ -1,3 +1,29 @@
+Hello ! To run the project first use the command  :
+
+### `git clone` name of the repository 
+
+Then :  
+
+### `cd Dataiku-Dev-Challenge`
+
+After you have to do :
+
+### `npm install`
+
+When everything is installed you can run : 
+
+### `npm start`
+
+To Start the Front with React
+
+Before upload a file open an other terminal and start the server with 
+
+### `node server.js`
+
+You can now upload file with the submit button ! 
+
+You can also look the React indications for more npm commands : 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
