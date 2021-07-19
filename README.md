@@ -4,7 +4,7 @@ Hello ! To run the project first use the command  :
 
 Then :  
 
-### `cd Dataiku-Dev-Challenge`
+### `cd Breadth-First-Search-Algorithm`
 
 After you have to do :
 
